@@ -7,13 +7,12 @@
 
 setup:
 	# Create python virtualenv & source it
-	# source ~/.devops/bin/activate
-	# python3 -m venv ~/.devops
+	pipenv install --three && \
+	pipenv shell
 
 install:
 	# This should be run from inside a virtualenv
-	pip3 install --upgrade pip &&\
-		pip3 install -r requirements.txt
+	pipenv install
 
 test:
 	# Additional, optional, tests could go here
@@ -26,6 +25,6 @@ lint:
 	hadolint Dockerfile
 	# This is a linter for Python source code linter: https://www.pylint.org/
 	# This should be run from inside a virtualenv
-	pylint --disable=R,C,W1202 app.py
+	cd src && pylint --load-plugins pylint_flask -j 5 block.py blockchain.py node.py transaction.py wallet.py --disable=R,C,W1202,W0603
 
 all: install lint test
