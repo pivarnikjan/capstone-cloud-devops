@@ -1,7 +1,6 @@
-[![Build Status](http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080/buildStatus/icon?job=capstone-cloud-devops%2Fmaster)](http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080/job/capstone-cloud-devops/job/master/)# capstone-cloud-devops
-Capstone Project for Cloud DevOps Nanodegree program
+[![Build Status](http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080/buildStatus/icon?job=capstone-cloud-devops%2Fmaster)](http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080/job/capstone-cloud-devops/job/master/)
+# Capstone Project for Cloud DevOps Nanodegree program
 
----
 
 ### Tracking progress: <br>
 [X] Create Github repository with project code. <br>
