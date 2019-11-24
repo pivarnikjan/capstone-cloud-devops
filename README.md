@@ -22,6 +22,8 @@
 4. Add permissions to your active user
 5. Go to project and copy embedded link for markup language
 
+`Pyenv Pipeline`
+
 #### `Docker`:
 
 - Remove old Docker
