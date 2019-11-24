@@ -7,7 +7,7 @@ pipeline {
                   Python: {
                     withPythonEnv('/usr/bin/python3.6') {
                           sh """
-                                pipenv shell
+                                pip3 install -r requirements.txt
                                 cd src/
                                 pylint --load-plugins pylint_flask -j 5 block.py blockchain.py node.py transaction.py wallet.py --disable=R,C,W1202,W0603
                             """
