@@ -5,7 +5,7 @@ pipeline {
             steps {
                parallel(
                   Python: {
-                    sh 'pylint --load-plugins pylint_flask -j 5 block.py blockchain.py node.py transaction.py wallet.py --disable=R,C,W1202,W0603'
+                    sh 'docker run --rm -v $(pwd)/src:/data cytopia/pylint .'
                   },
                   Dockerfile: {
                     sh 'docker run -i hadolint/hadolint < Dockerfile'
