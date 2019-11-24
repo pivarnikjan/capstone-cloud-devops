@@ -2,7 +2,7 @@
 # Capstone Project for Cloud DevOps Nanodegree program
 
 - Jenkins address:
-http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080
+http://ec2-34-216-106-208.us-west-2.compute.amazonaws.com
 
 ### Tracking progress: <br>
 [X] Create Github repository with project code. <br>
