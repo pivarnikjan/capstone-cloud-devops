@@ -10,6 +10,7 @@ pipeline {
                   Dockerfile: {
                     echo "This is branch b"
                   }
+               )
             }
         }
         stage('Upload to AWS'){
