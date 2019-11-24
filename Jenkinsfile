@@ -5,10 +5,10 @@ pipeline {
             steps {
                parallel(
                   Python: {
-                    echo "This is branch a"
+                    sh 'pylint --load-plugins pylint_flask -j 5 block.py blockchain.py node.py transaction.py wallet.py --disable=R,C,W1202,W0603'
                   },
                   Dockerfile: {
-                    echo "This is branch b"
+                    sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
                   }
                )
             }
@@ -16,7 +16,7 @@ pipeline {
         stage('Upload to AWS'){
             steps {
                 withAWS(region:'us-west-2', credentials:'aws-static') {
-                    s3Upload(file:'index.html', bucket:'jenkins-pipeline-aws')
+                    s3Upload(file:'src/ui/*.html', bucket:'jenkins-pipeline-aws')
                 }
             }
         }

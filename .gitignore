@@ -73,3 +73,4 @@ fabric.properties
 /project-3/aws/pipeline.pem
 /project-3/pipeline.pem
 /.password.cfg
+/pipeline.pem
