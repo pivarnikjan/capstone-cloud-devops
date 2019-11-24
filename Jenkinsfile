@@ -8,7 +8,7 @@ pipeline {
                     sh 'docker run --rm -v $(pwd)/src:/data cytopia/pylint .'
                   },
                   Dockerfile: {
-                    sh 'docker run -i hadolint/hadolint < Dockerfile'
+                    sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
                   }
                )
             }
