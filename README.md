@@ -16,5 +16,8 @@
 
 #### Install plugins on `Jenkins`:
 `Embeddable Build Status`
-- Configure Global Security
-- Matrix-based security
+1. Configure Global Security
+2. Matrix-based security
+3. Add permission for Anonymous Users to `ViewStatus`
+4. Add permissions to your active user
+5. Go to project and copy embedded link for markup language

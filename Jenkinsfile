@@ -1,9 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Lint HTML'){
+        stage('Linting files'){
             steps {
-               sh 'tidy -q -e *.html'
+               parallel(
+                  Python: {
+                    echo "This is branch a"
+                  },
+                  Dockerfile: {
+                    echo "This is branch b"
+                  }
             }
         }
         stage('Upload to AWS'){
