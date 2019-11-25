@@ -12,7 +12,7 @@ setup:
 
 install:
 	# This should be run from inside a virtualenv
-	pipenv install --three
+	pipenv install
 
 test:
 	# Additional, optional, tests could go here
