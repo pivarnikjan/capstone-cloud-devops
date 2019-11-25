@@ -6,8 +6,8 @@ pipeline {
                parallel(
                   Python: {
                     sh """
-                        cd src/utility
-                        pylint -j 3 hash_util.py printable.py --disable=R,C,W1202,W0603
+                        cd src
+                        pylint utility --disable=R,C,W1202,W0603
                     """
                   },
                   Dockerfile: {
