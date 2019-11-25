@@ -1,7 +1,3 @@
-def runCommandInMyEnvironment(cmd) {
-  sh ". ./venv/bin/activate; ${cmd}"
-}
-
 pipeline {
     agent any
     stages {
@@ -9,9 +5,10 @@ pipeline {
             steps {
                parallel(
                   Python: {
-                    runCommandInMyEnvironment('cd src')
-                    runCommandInMyEnvironment('pylint --load-plugins pylint_flask -j 5 block.py blockchain.py node.py transaction.py wallet.py --disable=R,C,W1202,W0603')
-
+                    sh """
+                        cd src/utility
+                        pylint -j 3 hash_util.py printable.py verification.py --disable=R,C,W1202,W0603
+                    """
                   },
                   Dockerfile: {
                     sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
