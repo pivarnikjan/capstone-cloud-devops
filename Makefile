@@ -7,12 +7,12 @@
 
 setup:
 	# Create python virtualenv & source it
-	pipenv install --three && \
-	pipenv shell
+    mkvirtualenv capstone-cloud-devops
 
 install:
 	# This should be run from inside a virtualenv
-	pipenv install
+	RUN pip3 install --upgrade pip &&\
+		pip3 install -r requirements.txt
 
 test:
 	# Additional, optional, tests could go here

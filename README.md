@@ -1,8 +1,8 @@
-[![Build Status](http://ec2-52-10-25-175.us-west-2.compute.amazonaws.com:8080/buildStatus/icon?job=capstone-cloud-devops%2Fmaster)](http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080/job/capstone-cloud-devops/job/master/)
+[![Build Status](http://ec2-54-190-22-180.us-west-2.compute.amazonaws.com:8080/buildStatus/icon?job=capstone-cloud-devops%2Fmaster)](http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080/job/capstone-cloud-devops/job/master/)
 # Capstone Project for Cloud DevOps Nanodegree program
 
 - Jenkins address:
-http://ec2-52-10-25-175.us-west-2.compute.amazonaws.com:8080
+http://ec2-54-190-22-180.us-west-2.compute.amazonaws.com:8080
 
 
 ### Tracking progress: <br>

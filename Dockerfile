@@ -4,7 +4,8 @@ WORKDIR /app
 COPY . /app
 
 # hadolint ignore=DL3013
-RUN pip3 install -r requirements.txt
+RUN pip3 install --upgrade pip &&\
+		pip3 install -r requirements.txt
 
 EXPOSE 5000
 
