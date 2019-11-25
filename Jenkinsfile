@@ -7,7 +7,7 @@ pipeline {
                   Python: {
                     sh """
                         cd src/utility
-                        pylint -j 3 hash_util.py printable.py verification.py --disable=R,C,W1202,W0603
+                        pylint -j 3 hash_util.py printable.py --disable=R,C,W1202,W0603
                     """
                   },
                   Dockerfile: {
