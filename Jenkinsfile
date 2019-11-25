@@ -6,8 +6,8 @@ pipeline {
                parallel(
                   Python: {
                           sh """
-                                . ./venv/bin/activate
-                                cd src/
+                                . ./venv/bin/activate && \
+                                cd src/ && \
                                 pylint --load-plugins pylint_flask -j 5 block.py blockchain.py node.py transaction.py wallet.py --disable=R,C,W1202,W0603
                             """
                       },
