@@ -1,5 +1,0 @@
-pycrypto
-flask
-flask-cors
-requests
-pylint-flask

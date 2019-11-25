@@ -11,12 +11,13 @@ COPY . /app
 ## Step 3:
 # Install packages from requirements.txt
 # hadolint ignore=DL3013
-RUN pip3 install -r requirements.txt
+RUN pip3 install pipenv
+RUN pipenv install --system --three
 
 ## Step 4:
 # Expose port 80
-EXPOSE 80
+EXPOSE 5000
 
 ## Step 5:
 # Run app.py at container launch
-CMD ["python", "app.py"]
+CMD ["python3", "src/node.py"]

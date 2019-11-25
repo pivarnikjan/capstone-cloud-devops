@@ -1,4 +1,4 @@
-[![Build Status](http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080/buildStatus/icon?job=capstone-cloud-devops%2Fmaster)](http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080/job/capstone-cloud-devops/job/master/)
+[![Build Status](http://ec2-52-10-25-175.us-west-2.compute.amazonaws.com:8080/buildStatus/icon?job=capstone-cloud-devops%2Fmaster)](http://ec2-35-166-30-226.us-west-2.compute.amazonaws.com:8080/job/capstone-cloud-devops/job/master/)
 # Capstone Project for Cloud DevOps Nanodegree program
 
 - Jenkins address:
@@ -7,7 +7,7 @@ http://ec2-52-10-25-175.us-west-2.compute.amazonaws.com:8080
 
 ### Tracking progress: <br>
 [X] Create Github repository with project code. <br>
-[ ] Use image repository to store Docker images. <br>
+[X] Use image repository to store Docker images. <br>
 [X] Execute linting step in code pipeline. <br>
 [ ] Build a Docker container in a pipeline. <br>
 [ ] The Docker container is deployed to a Kubernetes cluster. <br>
@@ -25,7 +25,6 @@ http://ec2-52-10-25-175.us-west-2.compute.amazonaws.com:8080
 4. Add permissions to your active user
 5. Go to project and copy embedded link for markup language
 
-`Pyenv Pipeline`
 
 #### `Docker`:
 
@@ -53,9 +52,9 @@ http://ec2-52-10-25-175.us-west-2.compute.amazonaws.com:8080
 - Use the following command to set up the stable repository.
     ```bash
     sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+        $(lsb_release -cs) \
+        stable"
     ```
 - Update the apt package index.
     ```bash
@@ -67,5 +66,6 @@ http://ec2-52-10-25-175.us-west-2.compute.amazonaws.com:8080
     ```
 - Add your normal user to the group to run docker commands as non-privileged user.
     ```bash
-    sudo usermod -aG docker $USER
+    sudo usermod -aG docker $USER && \
+    sudo usermod -aG docker jenkins
     ```
