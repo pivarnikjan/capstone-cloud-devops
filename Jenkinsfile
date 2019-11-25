@@ -24,25 +24,14 @@ pipeline {
         }
         stage('Building image') {
             steps{
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                    sh "docker build -t ${registry} ."
+                    sh "docker push ${registry}"
                 }
             }
         }
-        stage('Deploy Image') {
-            steps{
-                script {
-                    docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-        stage('Remove Unused docker image') {
-            steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
-            }
-        }
+
         stage('Deploy to AWS EKS'){
             steps {
                 withAWS(region:'us-west-2', credentials:'aws-static') {
