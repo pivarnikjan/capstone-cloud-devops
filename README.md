@@ -69,3 +69,79 @@ http://ec2-54-190-22-180.us-west-2.compute.amazonaws.com:8080
     sudo usermod -aG docker $USER && \
     sudo usermod -aG docker jenkins
     ```
+
+#### `AWS EKS`
+Follow steps on the link below:
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html
+
+
+#### `kubectl`
+You must use a kubectl version that is within one minor version difference of your Amazon EKS cluster
+control plane . For example, a 1.12 kubectl client should work with Kubernetes 1.11, 1.12, and 1.13
+clusters.
+- Download the Amazon EKS-vended kubectl binary for your cluster's Kubernetes version from Amazon S3:
+    ```bash
+    curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/kubectl
+    ```
+- Apply execute permissions to the binary.
+    ```bash
+    chmod +x ./kubectl
+    ```
+- Move the binary in to your PATH.
+    ```bash
+    sudo mv ./kubectl /usr/local/bin/kubectl
+    ```
+- Verify kubectl version
+    ```bash
+    kubectl version --short --client
+    ```
+
+#### `aws-iam-authenticator`
+- Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3:
+    ```bash
+    curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator
+    ```
+- Apply execute permissions to the binary.
+    ```bash
+    chmod +x ./aws-iam-authenticator
+    ```
+- Move the binary in to your PATH.
+    ```bash
+    sudo mv ./aws-iam-authenticator /usr/local/bin/aws-iam-authenticator
+    ```
+- Test that the aws-iam-authenticator binary works.
+    ```bash
+    aws-iam-authenticator help
+    ```
+
+#### `aws-cli`
+- Create Virtualenv
+    ```bash
+    mkvirtualenv capstone-cloud-devops -p /usr/local/bin/python3.7 -a $(pwd)
+    ```
+- Install aws-cli
+    ```bash
+    pip3 install awscli --upgrade
+    ```
+- Setup aws-cli
+    ```bash
+    aws configure
+    ```
+- Use the AWS CLI update-kubeconfig command to create or update your kubeconfig for your cluster.
+    ```bash
+    aws eks --region us-west-2 update-kubeconfig --name capstone-cloud-devops
+    ```
+
+### Deploying application:
+- Create pods
+    ```bash
+    kubectl apply -f cloudformation/k8s/deployment.yml
+    ```
+- Expose them as LoadBalancer service
+    ```bash
+    kubectl apply -f cloudformation/k8s/service.yml
+    ```
+- List hostname to which was application exposed
+    ```bash
+    kubectl get svc service-blockchain -o yaml
+    ```
