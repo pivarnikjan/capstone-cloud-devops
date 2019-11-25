@@ -1,5 +1,5 @@
 def runCommandInMyEnvironment(cmd) {
-  sh "source ./venv/bin/activate; ${cmd}"
+  sh ". ./venv/bin/activate; ${cmd}"
 }
 
 pipeline {
