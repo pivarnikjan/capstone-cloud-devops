@@ -9,7 +9,7 @@ http://ec2-54-190-22-180.us-west-2.compute.amazonaws.com:8080
 [X] Create Github repository with project code. <br>
 [X] Use image repository to store Docker images. <br>
 [X] Execute linting step in code pipeline. <br>
-[ ] Build a Docker container in a pipeline. <br>
+[X] Build a Docker container in a pipeline. <br>
 [ ] The Docker container is deployed to a Kubernetes cluster. <br>
 [ ] Use Blue/Green Deployment or a Rolling Deployment successfully. <br>
 

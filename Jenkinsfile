@@ -2,8 +2,6 @@ pipeline {
 
     environment {
         registry = "johnyjantar/capstone-cloud-devops"
-        registryCredential = 'dockerhub'
-        dockerImage = ''
     }
     agent any
     stages {
@@ -26,9 +24,14 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                    sh "docker build -t ${registry} ."
-                    sh "docker push ${registry}"
+                    sh "docker build -t ${registry}:${BUILD_NUMBER} ."
+                    sh "docker push ${registry}:${BUILD_NUMBER}"
                 }
+            }
+        }
+        stage('Cleaning'){
+            steps{
+                sh "docker rm ${registry}:${BUILD_NUMBER}"
             }
         }
 
