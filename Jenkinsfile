@@ -30,14 +30,16 @@ pipeline {
             }
         }
         stage('Deploy to AWS EKS') {
-            withAWS(region:'us-west-2', credentials:'aws-eks') {
-                sh "kubectl apply -f cloudformation/k8s/deployment.yml"
-                sh "kubectl apply -f cloudformation/k8s/service.yml"
-                sh "kubectl get nodes"
-                sh "kubectl get pods"
-                sh "kubectl get svc service-blockchain -o yaml"
+            steps{
+                withAWS(region:'us-west-2', credentials:'aws-eks') {
+                    sh "kubectl apply -f cloudformation/k8s/deployment.yml"
+                    sh "kubectl apply -f cloudformation/k8s/service.yml"
+                    sh "kubectl get nodes"
+                    sh "kubectl get pods"
+                    sh "kubectl get svc service-blockchain -o yaml"
+                }
             }
-    }
+        }
         stage('Cleaning'){
             steps{
                 sh "docker rmi ${image_name}:latest"
