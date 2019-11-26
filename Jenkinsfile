@@ -31,9 +31,11 @@ pipeline {
         }
         stage('Deploy to AWS EKS') {
             steps{
-                    sh "whoami"
-                    sh "env"
-
+                sh "kubectl get nodes"
+                sh "kubectl get pods"
+                sh "kubectl get svc service-blockchain -o yaml"
+                sh "kubectl apply -f cloudformation/k8s/deployment.yml"
+                sh "kubectl apply -f cloudformation/k8s/service.yml"
             }
         }
         stage('Cleaning'){
