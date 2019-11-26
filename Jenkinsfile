@@ -31,11 +31,11 @@ pipeline {
         }
         stage('Deploy to AWS EKS') {
             steps{
-                sh "kubectl get nodes"
-                sh "kubectl get pods"
-                sh "kubectl get svc service-blockchain -o yaml"
-                sh "kubectl apply -f cloudformation/k8s/deployment.yml"
-                sh "kubectl apply -f cloudformation/k8s/service.yml"
+                sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl get nodes"
+                sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl get pods"
+                sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl get svc service-blockchain -o yaml"
+                sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl apply -f cloudformation/k8s/deployment.yml"
+                sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl apply -f cloudformation/k8s/service.yml"
             }
         }
         stage('Cleaning'){
