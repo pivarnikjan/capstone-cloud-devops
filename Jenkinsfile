@@ -31,12 +31,10 @@ pipeline {
         }
         stage('Deploy to AWS EKS') {
             steps{
-                withAWS(region:'us-west-2', credentials:'aws-eks') {
 
                     sh "kubectl get nodes"
                     sh "kubectl get pods"
                     sh "kubectl get svc service-blockchain -o yaml"
-                }
             }
         }
         stage('Cleaning'){
