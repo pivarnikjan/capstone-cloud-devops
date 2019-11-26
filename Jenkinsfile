@@ -33,8 +33,7 @@ pipeline {
             steps{
                 sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl set image deployment/blockchain-deployment blockchain=${image_name}:latest"
                 sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl set image deployment/blockchain-deployment blockchain=${image_name}"
-                sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl apply -f cloudformation/k8s/deployment.yml"
-                sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl apply -f cloudformation/k8s/service.yml"
+
                 sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl get nodes"
                 sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl get pods"
                 sh "export PATH=/var/lib/jenkins/.local/bin:$PATH && kubectl get svc service-blockchain -o yaml"
